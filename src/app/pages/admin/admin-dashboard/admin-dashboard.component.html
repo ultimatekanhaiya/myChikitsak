@@ -1,0 +1,89 @@
+<div class="container m-5">
+  <!-- Button trigger modal -->
+  <div class="text-center">
+    <button (click)="clickAddDoctor()" type="button" class="btn btn-primary" data-bs-toggle="modal"
+      data-bs-target="#exampleModal">
+      Add Doctor
+    </button>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Doctor Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="formValue">
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Id</label>
+              <input type="text" formControlName="id" class="form-control" id="exampleFormControlInput1"
+                placeholder="enter id">
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Full Name</label>
+              <input type="text" formControlName="name" class="form-control" id="exampleFormControlInput1"
+                placeholder="ente full name">
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Age</label>
+              <input type="number" formControlName="age" class="form-control" id="exampleFormControlInput1"
+                placeholder="enter age">
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Gender</label>
+              <input type="text" formControlName="gender" class="form-control" id="exampleFormControlInput1"
+                placeholder="enter gender">
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Specialization</label>
+              <input type="text" formControlName="specialization" class="form-control" id="exampleFormControlInput1"
+                placeholder="enter specialization">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button *ngIf="showAdd" type="button" (click)="postDoctorDetails()" class="btn btn-primary">Add</button>
+          <button *ngIf="showUpdate" type="button" (click)="updateDoctorDetails()"
+            class="btn btn-primary">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">S.No</th>
+            <th scope="col">id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Specialization</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of doctorData; index as i">
+            <th scope="row">{{i+1}}</th>
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.age}}</td>
+            <td>{{item.gender}}</td>
+            <td>{{item.specialization}}</td>
+            <td>
+              <button (click)="onEdit(item)" class="btn btn-info" type="button" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">Edit</button>
+              <button (click)="deleteDoctor(item)" class="btn btn-danger mx-3">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

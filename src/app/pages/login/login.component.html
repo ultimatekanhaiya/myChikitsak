@@ -1,0 +1,35 @@
+<div class="container">
+
+  <div class="row m-3">
+    <div class="col-md-6 offset-md-3">
+      <mat-card>
+        <div class="container text-center">
+          <img src="../../../assets/medical-team.png" alt="logo" class="w-25">
+        </div>
+        <h3 class="text-center">Login Here</h3>
+
+        <form ngNativeValidate #login='ngForm' (ngSubmit)="formSubmit()">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>User Name</mat-label>
+            <input matInput placeholder="Enter here" type="text" name="username" [(ngModel)]="loginData.username"
+              required>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>User Password</mat-label>
+            <input matInput placeholder="Enter here" type="password" name="password" [(ngModel)]="loginData.password"
+              required>
+          </mat-form-field>
+
+          <div class="container text-center">
+            <button type="submit" mat-raised-button color="primary" class="m-2">Login</button>
+            <button type="reset" mat-raised-button color="accent" class="m-2">Clear</button>
+          </div>
+          <a style="color:rgb(88, 14, 14); margin-top:10px" class="justify-content-center text-center"
+            routerLink="/signup">New User?
+            Click to Register</a>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,44 @@
+{
+  "posts": [
+    {
+      "id": "123",
+      "name": "Ram",
+      "age": 45,
+      "gender": "male",
+      "specialization": "Physician"
+    },
+    {
+      "id": "847",
+      "name": "Vishnu",
+      "age": 35,
+      "gender": "male",
+      "specialization": "Neurologist"
+    },
+    {
+      "id": "632",
+      "name": "Rani",
+      "age": 45,
+      "gender": "female",
+      "specialization": "Physician"
+    },
+    {
+      "id": "373",
+      "name": "Sanjay",
+      "age": 36,
+      "gender": "male",
+      "specialization": "Neurologist"
+    },
+    {
+      "id": "758",
+      "name": "Mahesh",
+      "age": 48,
+      "gender": "male",
+      "specialization": "Pysician"
+    }
+  ],
+  "signupUsers": [],
+  "signupUser": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

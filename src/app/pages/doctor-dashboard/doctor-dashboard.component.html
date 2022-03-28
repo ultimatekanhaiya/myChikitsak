@@ -1,0 +1,85 @@
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 text-center">
+        <!-- Card -->
+        <div class="card justify-content-center p-3 m-auto" style="width: 18rem;">
+          <img src="../../../assets/doctor.png" class="card-img-top w-50" alt="..." style="margin:auto">
+          <div class="card-body m-3">
+            <h5 class="card-title">Patient Details</h5>
+            <hr>
+            <h6>Name : {{doctor.name}} </h6>
+            <h6>Age : {{doctor.age}}</h6>
+            <h6>Gender : {{doctor.gender}}</h6>
+            <h6>Specialization: {{doctor.specialization}}</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Appointment Table-->
+<div class="container m-5">
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Prescription Detail</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="formValue">
+            <div class="mb-3">
+              <textarea type="text" formControlName="prescription" name="" id="" cols="50" rows="10"
+                class="form-control" id="exampleFormControlInput1" placeholder="enter prescription" required></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="addPrescription()">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">S.No</th>
+            <th scope="col">id</th>
+            <th scope="col">Date</th>
+            <th scope="col">Problem</th>
+            <th scope="col">PatientId</th>
+            <th scope="col">status</th>
+            <th scope="col">prescription</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of appointmentData; index as i" (click)="setAppointId(item)">
+            <th scope="row">{{i+1}}</th>
+            <td>{{item.id}}</td>
+            <td>{{item.date}}</td>
+            <td>{{item.problem}}</td>
+            <td>{{item.patientId}}</td>
+            <td>{{item.status}}</td>
+            <td>{{item.prescription}}</td>
+            <td>
+              <button *ngIf="item.status == 'visited'" class="btn btn-info" type="button" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">Add
+                Prescription</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<mat-toolbar style="background-color:#00bfa66c">
+  <a mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" routerLink="">
+    <img src="../../../assets/medicine.png" alt="" class="myIcon">
+  </a>
+  <span>MyChikitsak</span>
+  <span class="example-spacer"></span>
+  <a mat-icon-button class="example-icon favorite-icon mx-5" aria-label="Example icon-button with heart icon"
+    routerLink="showDoctors">
+    <span>MeetOurStaff</span>
+  </a>
+  <a *ngIf="userType == 'admin'" mat-icon-button class="example-icon favorite-icon mx-2"
+    aria-label="Example icon-button with heart icon" routerLink="admin">
+    <span>Admin</span>
+  </a>
+  <a *ngIf="userType == 'doctor'" mat-icon-button class="example-icon favorite-icon mx-2"
+    aria-label="Example icon-button with heart icon" routerLink="doctor">
+    <span>Doctor</span>
+  </a>
+  <a *ngIf="userType == 'patient'" mat-icon-button class="example-icon favorite-icon mx-2"
+    aria-label="Example icon-button with heart icon" routerLink="patient">
+    <span>Patient</span>
+  </a>
+  <a *ngIf="!login" mat-icon-button class="example-icon favorite-icon mx-2"
+    aria-label="Example icon-button with heart icon" routerLink="login">
+    <span>Login</span>
+  </a>
+  <a *ngIf="login" (click)="logout()" mat-icon-button class="example-icon favorite-icon mx-2"
+    aria-label="Example icon-button with heart icon" routerLink="login">
+    <span>Logout</span>
+  </a>
+</mat-toolbar>
